@@ -34,3 +34,32 @@ git add .
 git commit -m "Initial commit"
 git push
 ```
+
+## 更換 Git 遠端URL並切換到新的專案分支
+- 為了配合新版本代碼整合，將原專案從舊路徑遷移至新的Git repository並同步指定分支。
+### 1. 檢查原本的Fit 遠端位置
+```ruby
+git remote -v
+```
+會出現兩個url，分別為(fetch)和(push)
+### 2. 移除遠端連結
+```ruby
+git remote rm origin
+git remove -v
+```
+會是(--空的)
+### 3. 增新的遠端url
+```ruby
+git remote add origin <new_project_url>
+```
+### 4. 確認新的遠端位置是否設定正確
+```ruby
+git remote -v
+```
+### 5. 拉取遠端分支資訊
+```ruby
+git fetch origin
+```
+### 6. 切換至新的分支
+```ruby
+git checkout <your beanch>
