@@ -3,8 +3,12 @@
   - Git官網 > Downloads > Downloads for Windows > Git for Windows/x64 Setup
 - 在專案資料夾中按下右鍵 > 顯示其他選項 > Open git Bash here 或 Open git GUI here
 
-- [用git建立新的project在Github](##-用git建立新的project在Github)
-- [更換 Git 遠端URL並切換到新的專案分支](##-更換-Git-遠端URL並切換到新的專案分支)
+- [用git建立新的project在Github](#-git----project-github)
+- [更換 Git 遠端URL並切換到新的專案分支](#---git---url----------)
+- [⚠️ Detached HEAD 狀態](#---detached-head---)
+- [修改上一筆commit訊息](#-----commit--)
+- [📦 抓下整個專案或設定分支追蹤](#----------------)
+ 
 ## 用git建立新的project在Github
 - 這是在自己的github增新project，如果想和組員分享code可以透過這個方式
 - 最後修改完成，就可以merge上去
@@ -65,3 +69,38 @@ git fetch origin
 ### 6. 切換至新的分支
 ```ruby
 git checkout <your beanch>
+```
+
+## ⚠️ Detached HEAD 狀態
+
+### 問題：
+```bash
+git status
+# Not currently on any branch.
+# HEAD detached at <commit_hash>
+```
+原因: 代表目前不在任何分支上 (如 checkout到特定commit、tag等)，不建議直接開發，否則commit可能無法追蹤。
+### 解法
+建立新分支並切換
+```bash
+git checkout -b <new-branch-name>
+```
+
+## 修改上一筆commit訊息
+```bash
+git commit --amend -m "commit message"
+```
+若想加入遺漏的檔案
+```bash
+git add <file name>
+git commit --amend
+```
+⚠️ 注意：--amend 會改寫歷史，不建議對已經 push 到遠端的 commit 使用。
+
+## 📦 抓下整個專案或設定分支追蹤
+想拉整個專案或回到分支開發
+查看遠端分支`git remote -v`
+```bash
+git checkout -b <your branch>
+git pull --set-upstream <remote branch>
+```
