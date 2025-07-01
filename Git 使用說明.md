@@ -3,6 +3,7 @@
   - Git官網 > Downloads > Downloads for Windows > Git for Windows/x64 Setup
 - 在專案資料夾中按下右鍵 > 顯示其他選項 > Open git Bash here 或 Open git GUI here
 
+- [用git建立新的project在Github](##用git建立新的project在Github)
 ## 用git建立新的project在Github
 - 這是在自己的github增新project，如果想和組員分享code可以透過這個方式
 - 最後修改完成，就可以merge上去
